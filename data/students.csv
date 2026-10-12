@@ -1,0 +1,26 @@
+student_id,student_name,department,semester,python_marks,mathematics_marks,statistics_marks,attendance_percentage
+STD1001,Aarav Sharma,Computer Science,3,92,95,91,94.0
+STD1002,Diya Patel,Data Science,3,88,85,90,88.5
+STD1003,Rohan Verma,Artificial Intelligence,4,76,82,79,81.0
+STD1004,Ananya Iyer,Information Technology,2,94,91,96,72.0
+STD1005,Vikram Singh,Computer Science,3,62,58,65,85.0
+STD1006,Sneha Kulkarni,Data Science,1,54,52,56,78.5
+STD1007,Rahul Nair,Artificial Intelligence,4,42,45,40,80.0
+STD1008,Pooja Mehta,Information Technology,2,35,36,38,76.0
+STD1009,Arjun Das,Computer Science,3,72,30,68,82.5
+STD1010,Meera Reddy,Data Science,3,28,65,58,68.0
+STD1011,Karan Malhotra,Artificial Intelligence,4,85,88,32,90.0
+STD1012,Tanvi Joshi,Information Technology,2,31,29,34,62.0
+STD1013,Aditya Rao,Computer Science,1,85,84,82,89.0
+STD1014,Ishita Sen,Data Science,2,70,75,72,91.5
+STD1015,Harsh Vardhan,Artificial Intelligence,3,64,61,67,74.0
+STD1016,Kavya Pillai,Information Technology,4,58,55,52,83.0
+STD1017,Nikhil Gupta,Computer Science,2,48,46,50,79.0
+STD1018,Riya Banerjee,Data Science,1,98,96,95,96.0
+STD1019,Siddharth Jain,Artificial Intelligence,3,79,81,75,86.0
+STD1020,Neha Choudhury,Information Technology,4,66,68,64,70.0
+STD1021,Devendra Prasad,Computer Science,1,35,35,35,75.0
+STD1022,Simran Kaur,Data Science,2,82,78,80,84.0
+STD1023,Yash Chopra,Artificial Intelligence,3,22,19,25,55.0
+STD1024,Priya Nambiar,Information Technology,1,91,89,93,92.0
+STD1025,Gaurav Saxena,Computer Science,4,74,71,77,87.0
