@@ -1,253 +1,277 @@
 # Student Academic Performance Analysis and Reporting System
 
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![Tests-Passed](https://img.shields.io/badge/tests-32%20passed-brightgreen.svg)](tests/)
-[![Course](https://img.shields.io/badge/Course-EWB%20Python%20with%20AI-orange.svg)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](#)
+<p align="center">
+  <img src="assets/banner_light.png" alt="Student Academic Performance Analysis Banner" width="100%" />
+</p>
 
-A modular, automated command-line analytics and reporting system engineered in Python, Pandas, and NumPy for academic performance assessment. Developed in compliance with the **EWB Courses | Python with AI** project curriculum.
-
----
-
-## 1. Project Title & Overview
-
-The **Student Academic Performance Analysis and Reporting System** is a software solution designed to ingest, validate, analyze, and report cohort-level student performance data. It transforms raw academic records into actionable intelligence, producing individual student performance evaluations, subject-level distributions, statistical cohort indicators, and grouped performance breakdowns across academic departments and semesters.
-
----
-
-## 2. Problem Statement & Objective
-
-Educational institutions require reliable, automated methods to analyze student scores and attendance records without human error or manual calculations. 
-
-### Core Objectives:
-- Ingest and validate student records from CSV datasets with zero data corruption.
-- Calculate unrounded average marks, assign project-defined letter grades (A+ to F), and determine multi-subject pass/fail outcomes.
-- Track attendance deficiencies separately from academic competency.
-- Compute descriptive statistics (mean, median, standard deviation, pass percentages) using NumPy and Pandas.
-- Produce a structured, professional 9-section executive console report answering key analytical queries at runtime.
+<p align="center">
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.11+" /></a>
+  <a href="https://pandas.pydata.org/"><img src="https://img.shields.io/badge/Pandas-2.0+-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas" /></a>
+  <a href="https://numpy.org/"><img src="https://img.shields.io/badge/NumPy-1.24+-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy" /></a>
+  <a href="tests/"><img src="https://img.shields.io/badge/Tests-32%20Passed-059669?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Tests" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-4F46E5?style=for-the-badge" alt="License" /></a>
+  <a href="#author--credits"><img src="https://img.shields.io/badge/Course-EWB%20Python%20with%20AI-D97706?style=for-the-badge" alt="Course" /></a>
+</p>
 
 ---
 
-## 3. Implemented Features
+## 📌 Executive Summary
 
-- **Robust CSV Ingestion & Pre-Flight Validation**:
-  - Enforces schema integrity, rejecting empty files, missing columns, duplicate IDs, non-positive semesters, and out-of-range marks ($0-100$) or attendance ($0-100\%$).
-- **Precision Academic Calculations**:
-  - Unrounded floating-point averages with display-only rounding.
-  - Multi-subject pass determination: passing requires scoring $\ge 35.0$ in Python, Mathematics, and Statistics.
-  - 7-tier letter grading scale: A+ ($90-100$), A ($80-89$), B ($70-79$), C ($60-69$), D ($50-59$), E ($35-49$), F ($<35$).
-- **Administrative Attendance Monitoring**:
-  - Flags students with attendance $< 75.0\%$ without overwriting academic marks.
-- **Subject-Wise Analytics**:
-  - Per-subject enrollment counts, means, min/max values, sample standard deviations, pass counts, fail counts, and top subject identification with tie resolution.
-- **Class-Level Analytics**:
-  - Cohort size, total passing/failing all subjects, overall class average (arithmetic mean of student averages), median, standard deviation, and class pass rate.
-- **Rankings & Extreme Performers**:
-  - Top-5 rankings with deterministic tie-handling (all tied 5th-place students included).
-  - Identification of lowest-performing student(s).
-- **Multi-Dimensional Group Aggregation**:
-  - Department-wise and semester-wise grouping with size, average score, pass rates, and attendance means.
-- **Dynamic Findings Engine**:
-  - Generates runtime answers for 12 core academic questions without hardcoding.
-- **32 Automated Unit Tests**:
-  - Built-in `unittest` covering edge cases, grade boundaries, tie handling, and error handling.
+The **Student Academic Performance Analysis and Reporting System** is an end-to-end command-line analytical platform developed for academic institutions. Engineered strictly with Python, Pandas, and NumPy, it automates the ingestion, data quality auditing, statistical evaluation, 7-tier letter grading, cohort ranking, and multi-dimensional reporting of student academic performance.
+
+> **Course**: EWB Courses | Python with AI Internship Mini-Project  
+> **Key Benchmark**: 25 Synthetic Student Records | 32 Automated Unit Tests (100% Pass Rate) | Strict Pure-Function Design
 
 ---
 
-## 4. Technologies Used
+## 🌟 Key Highlights & Metrics
 
-- **Language**: Python 3.11+
-- **Data Analysis**: Pandas 2.0+ / 3.0+
-- **Numerical Computation**: NumPy 1.24+ / 2.0+
-- **Testing**: Python `unittest` framework
-- **Filesystem & Paths**: Python `pathlib.Path` (Cross-platform portability)
+| 🎓 Cohort Size | 🏆 Top Score | 📊 Pass Rate | ⚡ Attendance Correlation | 🛡️ Test Suite |
+| :---: | :---: | :---: | :---: | :---: |
+| **25 Students** | **96.33%** (Riya Banerjee) | **80.00%** (20 Passed) | **+0.73** (Positive Trend) | **32 / 32 Passed** |
+
+- **Strict Pre-Flight Validation**: Zero-null policy, non-empty text, positive semester integers, and $[0.0, 100.0]$ range enforcement.
+- **Precision Academic Logic**: Continuous unrounded floating-point averages with presentation-only rounding.
+- **7-Tier Letter Rubric**: $A^+$ through $F$ mapped cleanly to standard institutional evaluation tiers.
+- **Multi-Subject Pass Rule**: Students must score $\ge 35.0$ in **all three subjects** (Python, Mathematics, Statistics) to achieve an overall Pass.
+- **Decoupled Attendance Auditing**: Attendance $< 75.0\%$ is tracked as an administrative deficiency without distorting academic subject marks.
+- **Deterministic Tie-Aware Ranking**: Top-5 rankings transparently preserve all students tied at the 5th position.
+- **Dynamic 9-Section Reporting**: Answers 12 core academic queries at runtime with clean ASCII formatting.
 
 ---
 
-## 5. Project Structure
+## 🏗️ System Architecture & Execution Pipeline
 
-```text
-student-performance-analytics/
-├── main.py                     # Application entry point & CLI reporting engine
-├── functions.py                # Reusable pure functions for data validation & analytics
-├── data/
-│   └── students.csv            # 25 realistic, diverse synthetic student records
-├── tests/
-│   ├── __init__.py
-│   └── test_functions.py       # 32 automated unit tests using unittest
-├── screenshots/
-│   └── README.md               # Visual proof guide & full CLI execution transcript
-├── README.md                   # Complete system overview & execution manual
-├── Project_Documentation.md    # 10-section EWB coursework submission document
-├── requirements.txt            # Minimal dependencies (pandas, numpy)
-└── .gitignore                  # Git ignore specification
+The application follows a modular, pure-function architectural design pattern that cleanly separates input ingestion, validation, calculation, grouping, and console presentation.
+
+<p align="center">
+  <img src="assets/architecture_light.png" alt="Architecture & Execution Pipeline" width="100%" />
+</p>
+
+### Pipeline Breakdown
+
+```
+ ┌──────────────────────┐      ┌─────────────────────────┐      ┌────────────────────────┐      ┌─────────────────────────┐
+ │   STAGE 01: INGEST   │ ───► │  STAGE 02: CALCULATIONS │ ───► │  STAGE 03: AGGREGATION │ ───► │   STAGE 04: REPORTING   │
+ ├──────────────────────┤      ├─────────────────────────┤      ├────────────────────────┤      ├─────────────────────────┤
+ │ • Pathlib CSV loader │      │ • Unrounded float mean  │      │ • NumPy stats (std,med)│      │ • 9 structured sections │
+ │ • Schema verification│      │ • 7-Tier rubric (A+-F)  │      │ • Department summaries │      │ • 12 dynamic Q&A answers│
+ │ • Range check [0-100]│      │ • Subject >=35 pass rule│      │ • Semester breakdowns  │      │ • Formatted ASCII tables│
+ │ • Unique ID integrity│      │ • Attendance flag (<75%)│      │ • Deterministic ties   │      │ • Zero display drift    │
+ └──────────────────────┘      └─────────────────────────┘      └────────────────────────┘      └─────────────────────────┘
 ```
 
 ---
 
-## 6. Dataset Schema
+## 📊 Analytical Cohort Dashboard
 
-The system analyzes `data/students.csv`, containing **25 synthetic student records**:
+The system analyzes real academic data from `data/students.csv`, computing cohort-level metrics, subject comparisons, department leaders, and attendance trends dynamically.
 
-| Column Name | Type | Allowed Values / Constraints | Description |
-|---|---|---|---|
-| `student_id` | String | Unique, non-empty (e.g. `STD1001`) | Primary student identification number |
-| `student_name` | String | Non-empty string | Full name of the student |
-| `department` | String | Non-empty string | Department (Computer Science, Data Science, IT, AI) |
-| `semester` | Integer | Positive integer ($1, 2, 3, 4$) | Current semester of enrollment |
-| `python_marks` | Numeric | $0.0 \le \text{mark} \le 100.0$ | Marks in Python Programming |
-| `mathematics_marks` | Numeric | $0.0 \le \text{mark} \le 100.0$ | Marks in Mathematics |
-| `statistics_marks` | Numeric | $0.0 \le \text{mark} \le 100.0$ | Marks in Statistics |
-| `attendance_percentage` | Numeric | $0.0 \le \text{attendance} \le 100.0$ | Overall semester attendance rate |
+<p align="center">
+  <img src="assets/analytics_overview.png" alt="Analytical Cohort Dashboard Overview" width="100%" />
+</p>
 
----
-
-## 7. Grading and Attendance Policy
-
-### Subject Pass Mark
-- A mark of **35.0 or higher** is required to pass a subject.
-
-### Overall Academic Result
-- A student achieves an overall **Pass** if and only if all three subject marks are $\ge 35.0$. If any subject mark is $< 35.0$, the student receives an overall **Fail**.
-
-### Attendance Monitoring
-- Minimum institutional attendance threshold is **75.0%**. Attendance $< 75.0\%$ is flagged as **Low Attendance**.
-- **Important**: Attendance status is monitored separately and does not automatically alter or fail a student's academic marks.
-
-### Letter Grade Rubric (Unrounded Average)
-Grades are computed from the continuous unrounded average of the three subjects:
-
-| Average Mark Range | Grade | Description |
-|---|---|---|
-| 90.0 to 100.0 | **A+** | Outstanding Mastery |
-| 80.0 to below 90.0 | **A** | Excellent Performance |
-| 70.0 to below 80.0 | **B** | Good / Above Average |
-| 60.0 to below 70.0 | **C** | Satisfactory / Average |
-| 50.0 to below 60.0 | **D** | Needs Improvement |
-| 35.0 to below 50.0 | **E** | Borderline Pass |
-| Below 35.0 | **F** | Academic Failure |
+### Analytical Insights Summary:
+1. **Subject Performance**: Python Programming scored the highest cohort average at **65.24%**, followed by Mathematics (**64.56%**) and Statistics (**64.56%**).
+2. **Department Standings**: **Data Science** leads all departments with an average of **73.44%**, followed by Computer Science (**64.52%**), Information Technology (**62.22%**), and Artificial Intelligence (**59.00%**).
+3. **Pass / Fail Ratio**: **80.0%** of students passed all subjects (20 students), while **20.0%** (5 students) failed at least one subject.
+4. **Attendance Correlation**: A positive Pearson correlation coefficient of **+0.73** confirms a strong direct relationship between student attendance and academic score averages.
 
 ---
 
-## 8. Prerequisites
+## 🎯 Academic Evaluation & Grading Policy
 
-- **Operating System**: Windows 10/11, macOS, or Linux.
-- **Python**: Version 3.11 or higher installed and added to `PATH`.
-- **Git**: Installed for version control.
+Academic outcomes are evaluated against strict institutional rules that ensure academic rigor and transparent student records.
 
----
+<p align="center">
+  <img src="assets/grading_rubric_light.png" alt="7-Tier Grading Rubric" width="95%" />
+</p>
 
-## 9. Windows Installation Instructions
+### Rubric Breakdown:
 
-1. Open PowerShell or Command Prompt.
-2. Clone or navigate into the project directory:
-   ```powershell
-   cd "d:\current project\python with AI\mw\student-performance-analytics"
-   ```
+| Grade | Continuous Score Range | Qualitative Description | Outcome |
+| :---: | :---: | :--- | :---: |
+| **A+** | $90.0\% \le \text{Average} \le 100.0\%$ | Outstanding Mastery | **Pass** |
+| **A** | $80.0\% \le \text{Average} < 90.0\%$ | Excellent Performance | **Pass** |
+| **B** | $70.0\% \le \text{Average} < 80.0\%$ | Very Good Understanding | **Pass** |
+| **C** | $60.0\% \le \text{Average} < 70.0\%$ | Good / Above Average | **Pass** |
+| **D** | $50.0\% \le \text{Average} < 60.0\%$ | Satisfactory Performance | **Pass** |
+| **E** | $35.0\% \le \text{Average} < 50.0\%$ | Marginal Pass (Subject Minimum) | **Pass** |
+| **F** | $\text{Average} < 35.0\%$ | Academic Failure | **Fail** |
 
----
-
-## 10. Virtual Environment Setup
-
-Isolate your Python environment to avoid version conflicts:
-
-```powershell
-# Create a virtual environment named .venv
-python -m venv .venv
-
-# Activate the virtual environment
-.venv\Scripts\activate
-```
+> **Pass/Fail Criteria**: A student passes overall **if and only if** $\text{mark} \ge 35.0$ in Python, Mathematics, and Statistics.  
+> **Attendance Criteria**: Attendance $< 75.0\%$ generates an administrative warning flag (`Low Attendance`) without mutating academic exam scores.
 
 ---
 
-## 11. Dependency Installation
+## 🏆 Honor Roll & Top Performers
 
-Install the required external packages:
+Rankings are calculated dynamically based on individual student average marks, incorporating a deterministic tie-handling policy that guarantees all qualifying students sharing the 5th rank are honored.
 
-```powershell
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-```
+<p align="center">
+  <img src="assets/top_performers_light.png" alt="Top 5 Academic Performers" width="95%" />
+</p>
 
----
-
-## 12. Program Execution
-
-Launch the analytical engine:
-
-```powershell
-python main.py
-```
-
-*Note: The program uses relative paths and can also be run from any parent directory:*
-```powershell
-python student-performance-analytics\main.py
-```
+| Rank | Student ID | Name | Department | Semester | Average | Grade | Attendance |
+| :---: | :---: | :--- | :--- | :---: | :---: | :---: | :---: |
+| 🥇 **#1** | `STD1018` | **Riya Banerjee** | Data Science | 3 | **96.33%** | `A+` | 96.0% |
+| 🥈 **#2** | `STD1004` | **Ananya Iyer** | Information Technology | 2 | **93.67%** | `A+` | 72.0% *(Low)* |
+| 🥉 **#3** | `STD1001` | **Aarav Sharma** | Computer Science | 3 | **92.67%** | `A+` | 94.0% |
+| 🎖️ **#4** | `STD1024` | **Priya Nambiar** | Information Technology | 1 | **91.00%** | `A+` | 92.0% |
+| 🎖️ **#5** | `STD1002` | **Diya Patel** | Data Science | 3 | **87.67%** | `A` | 88.5% |
 
 ---
 
-## 13. Automated Testing
+## 🚀 LinkedIn Showcase Graphic (`image.png`)
 
-Run the full automated test suite using Python's built-in `unittest` runner:
+For public sharing, professional portfolio demonstration, and social announcements, this project includes a comprehensive, publication-grade LinkedIn showcase graphic located at [`image.png`](image.png):
+
+<p align="center">
+  <img src="image.png" alt="Project LinkedIn Showcase Image" width="85%" />
+</p>
+
+---
+
+## 📋 Comprehensive 9-Section Console Report
+
+When executing `python main.py`, the reporting engine outputs a structured, professional executive report:
+
+<details>
+<summary><b>Click to expand full 9-section report details</b></summary>
+
+- **Section A | Application Header**: Displays project metadata, execution mode, dataset location, and academic compliance statements.
+- **Section B | Dataset Overview**: Schema validation confirmation, column audit, zero-null audit, and 5-row preview.
+- **Section C | Individual Student Results**: Full tabular breakdown of all 25 students with ID, Name, Department, Semester, Total Marks, Average, Grade, Result, and Attendance status.
+- **Section D | Subject-Wise Performance Analysis**: Enrollment count, mean, min, max, standard deviation, pass count, fail count, and top subject identification.
+- **Section E | Class Performance Summary**: Overall class average, median, standard deviation of averages, cohort pass percentage, and attendance average.
+- **Section F | Student Ranking & Outliers**: Top-5 ranked performers with tie handling, plus identification of lowest academic performer(s).
+- **Section G | Attendance Monitoring Analysis**: Summary of students meeting the 75% target versus those flagged for administrative review.
+- **Section H | Group Analysis**: Comparative breakdowns grouped by Department and by Semester.
+- **Section I | Final Findings & Core Analytical Answers**: Programmatically answers 12 core academic questions without hardcoding.
+
+</details>
+
+---
+
+## 🧪 Automated Unit Testing (32/32 Tests)
+
+The test suite is built on Python's built-in `unittest` framework, validating all boundary conditions, error handling, grading logic, and statistical correctness.
 
 ```powershell
 python -m unittest discover -s tests -v
 ```
 
-### Verified Test Summary:
-- **Total Tests**: 32 unit tests
-- **Coverage**: Grade boundary tests, pass/fail thresholds, attendance limits, mathematical correctness, tie handling, error validation, corrupted data handling.
-- **Status**: 100% Passed (`Ran 32 tests in ~0.15s - OK`).
+### Verified Test Suites:
+- `TestValidationAndDataQuality`: Validates schema, empty DataFrames, missing columns, non-numeric values, out-of-range marks, negative semesters, duplicate IDs, and whitespace names.
+- `TestGradingLogic`: Asserts all boundary conditions for grades $A^+$, $A$, $B$, $C$, $D$, $E$, and $F$, as well as negative or $>100$ scores.
+- `TestPassFailRules`: Verifies subject-level thresholds ($\ge 35$), single-subject failure outcomes, and multi-subject failure rules.
+- `TestAttendanceStatus`: Verifies exact $75.0\%$ boundary condition, above-threshold normal status, and below-threshold flags.
+- `TestCalculationsAndAnalytics`: Verifies unrounded average floating-point calculations, class statistics, tie-handling ranking logic, and group aggregations.
+- `TestFileIngestion`: Verifies `Pathlib` path handling, non-existent files (`FileNotFoundError`), and empty CSVs (`ValueError`).
+
+```text
+Ran 32 tests in 0.201s
+
+OK
+```
 
 ---
 
-## 14. Description of the Console Report
+## 💻 Installation & Quickstart
 
-When `python main.py` runs, it prints a structured report divided into 9 sections:
+### 1. Prerequisites
+- **Python 3.11+** installed and available in your environment path.
+- **Git** installed.
 
-- **Section A | Application Header**: Displays project metadata, file location, and synthetic data disclaimer.
-- **Section B | Dataset Overview**: Displays row/column count, column headers, zero-null audit, and first 5 rows preview.
-- **Section C | Individual Student Results**: Full tabular breakdown showing Student ID, Name, Department, Semester, Total Marks, Average, Grade, Overall Result, Attendance %, and Attendance Status.
-- **Section D | Subject-Wise Performance Analysis**: Detailed table showing N, Mean, High, Low, StdDev, Pass Count, Fail Count, Pass Rate for each subject, plus top-performing subject identification.
-- **Section E | Class Performance Summary**: Cohort pass rate, overall class mean, median, standard deviation, and class attendance mean.
-- **Section F | Student Ranking & Outliers**: Top-5 ranked performers with tie-handling policy applied, plus identification of lowest performer(s).
-- **Section G | Attendance Monitoring Analysis**: List of students flagged for attendance $< 75.0\%$.
-- **Section H | Group Analysis**: Comparative breakdowns grouped by Department and by Semester.
-- **Section I | Final Findings**: Direct runtime answers to all 12 core academic questions.
+### 2. Clone and Setup
+```powershell
+# Clone the repository
+git clone https://github.com/maheswari9080/python-with-ai-internship-mini-project.git
+cd python-with-ai-internship-mini-project
+
+# Create a virtual environment
+python -m venv .venv
+
+# Activate the virtual environment (Windows)
+.venv\Scripts\activate
+
+# Activate the virtual environment (macOS / Linux)
+source .venv/bin/activate
+```
+
+### 3. Install Dependencies
+```powershell
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+### 4. Run the Analytics Engine
+```powershell
+python main.py
+```
+
+### 5. Run the Automated Tests
+```powershell
+python -m unittest discover -s tests -v
+```
+
+### 6. Regenerate Visual Assets (Optional)
+```powershell
+python scripts/build_all_assets.py
+```
 
 ---
 
-## 15. Documentation Link
+## 📁 Repository Structure
 
-For the comprehensive 10-section EWB coursework submission document, refer to:
-[Project_Documentation.md](file:///d:/current%20project/python%20with%20AI/mw/student-performance-analytics/Project_Documentation.md)
+```text
+python-with-ai-internship-mini-project/
+├── image.png                     # LinkedIn Showcase featured graphic (Full Project)
+├── LICENSE                       # MIT License
+├── README.md                     # Light-theme formatted visual documentation
+├── Project_Documentation.md      # 10-section formal EWB coursework documentation
+├── requirements.txt              # Minimal project dependencies (pandas, numpy, matplotlib)
+├── .gitignore                    # Python, virtualenv, and IDE ignore specification
+├── main.py                       # CLI application entry point and reporting engine
+├── functions.py                  # Pure reusable analytical and data processing functions
+├── data/
+│   └── students.csv              # 25 synthetic, realistic student records
+├── tests/
+│   ├── __init__.py
+│   └── test_functions.py         # 32 automated unit tests using unittest
+├── assets/
+│   ├── banner_light.png          # Light-theme hero banner
+│   ├── architecture_light.png    # 4-stage pipeline architecture diagram
+│   ├── analytics_overview.png    # 4-panel data-driven dashboard charts
+│   ├── grading_rubric_light.png  # 7-tier grading rubric card
+│   ├── top_performers_light.png  # Top 5 leaderboard honor roll
+│   └── linkedin_showcase.png     # Project showcase graphic
+├── screenshots/
+│   ├── README.md                 # Execution capture manual and verified terminal logs
+│   └── image.png                 # Backup copy of LinkedIn graphic
+└── scripts/
+    ├── build_all_assets.py       # Master visual generator script for all light-theme graphics
+    └── generate_linkedin_img.py  # Standalone generator for image.png
+```
 
 ---
 
-## 16. Data Privacy Statement
+## 🔒 Data Privacy & Compliance
 
-This application operates exclusively on synthetic, fictional student data. No real personal student information, institutional identities, or private grades are contained within or processed by this repository.
-
----
-
-## 17. Limitations
-
-- **Dataset Scale**: Designed for small-to-medium classroom cohorts in CSV format; large multi-million row deployments would benefit from Parquet or SQL-backed databases.
-- **Static Schema**: Assumes the three core subjects (`python_marks`, `mathematics_marks`, `statistics_marks`). Extending to elective curricula requires dynamic subject column discovery.
-- **Console Interface**: Terminal-based CLI output; no web UI or graphical desktop dashboard is included.
+This project operates strictly on **synthetic, fictional student records** (`data/students.csv`). No real-world student identifiers, actual school records, or personally identifiable information (PII) are stored or processed.
 
 ---
 
-## 18. GitHub Submission Checklist
+## 📄 License & Credits
 
-Before submitting to EWB Courses:
-- [x] Directory structure matches EWB specification.
-- [x] Synthetic dataset contains $\ge 20$ valid records (25 records provided).
-- [x] `requirements.txt` contains only required dependencies.
-- [x] `.gitignore` prevents virtual environment and cache pollution.
-- [x] All 32 automated unit tests execute and pass (`unittest`).
-- [x] `main.py` runs without errors on Windows terminals (`cp1252` safe).
-- [x] `Project_Documentation.md` contains all 10 required sections.
-- [x] `README.md` is complete and verified against real project execution.
-- [x] No sensitive files, credentials, or `.env` files committed.
+This project is open-source software licensed under the [MIT License](LICENSE).
+
+- **Author**: Vijay Mahes ([maheswari9080](https://github.com/maheswari9080))
+- **Course**: Python with AI Internship Mini-Project
+- **Institution**: EWB Courses (2026 Academic Session)
+
+---
+
+<p align="center">
+  <b>Built with Python, Pandas, and NumPy for rigorous academic performance analytics.</b>
+</p>
